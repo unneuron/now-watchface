@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="UTF-8">
+    <title>NOW Watchface Settings</title>
+    <script type="text/javascript">
+    function saveSettings() {
+      var nowText = document.getElementById('now');
+      var options = { now: nowText };
+      document.location = 'pebblejs://close#' + encodeURIComponent(JSON.stringify(options));
+      return false;
+    }
+    </script>
+  </head>
+
+  <body>
+    <form id="now-settings" method="post" onsubmit="return saveSettings();">
+      <label>Text</label>
+      <input name="now" id="now" />
+      <input type="submit" value="Save" />
+    </form>
+  </body>
+
+</html>
