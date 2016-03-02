@@ -80,8 +80,14 @@ Accel.on('tap', function(e) {
   var hour = curDate.getHours() > 12 ? ( curDate.getHours()-12 ) : curDate.getHours();
   var minute = curDate.getMinutes();
   var ampm = curDate.getHours() > 12 ? "PM" : "AM";
+  if (hour.toString().length == 1) {
+    hour = "0" + hour.toString();
+  }
+  if (minute.toString().length == 1) {
+    minute = "0" + minute.toString();
+  }
   
-  now.text(hour + ":" + minute + " " + ampm);
+  now.text(hour + " : " + minute + " " + ampm);
   setTimeout(function(){
     now.text(NowText);
   }, 3000);
