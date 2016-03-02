@@ -62,7 +62,7 @@ Accel.on('tap', function(e) {
   var curDate = new Date();
   var hour = curDate.getHours() > 12 ? ( curDate.getHours()-12 ) : curDate.getHours();
   var minute = curDate.getMinutes();
-  var ampm = curDate.getHours() > 12 ? "AM" : "PM";
+  var ampm = curDate.getHours() > 12 ? "PM" : "AM";
   
   now.text(hour + ":" + minute + " " + ampm);
   setTimeout(function(){
