@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
     <title>NOW Watchface Settings</title>
     <script type="text/javascript">
+    function loadSettings() {
+      
+    }
     function saveSettings() {
-      var nowText = document.getElementById('now');
+      var nowText = document.getElementById('now').value;
       var options = { now: nowText };
       document.location = 'pebblejs://close#' + encodeURIComponent(JSON.stringify(options));
       return false;
@@ -13,7 +16,7 @@
     </script>
   </head>
 
-  <body>
+  <body onload="loadSettings()">
     <form id="now-settings" method="post" onsubmit="return saveSettings();">
       <label>Text</label>
       <input name="now" id="now" />
