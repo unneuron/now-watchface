@@ -3,11 +3,28 @@
  *
  * This is where you write your app.
  */
-
+var defaultText = "NOW";
 var UI = require('ui');
 var Vector2 = require('vector2');
 var Accel = require('ui/accel');
-var NowText = "NOW";
+var Settings = require('settings');
+var NowText = defaultText;
+
+
+// Set a configurable with the open callback
+Settings.config(
+  { url: 'http://dev.unneuron.ro/now-watch.html' },
+  function(e) {
+    console.log('opening configurable');
+
+    Settings.option('now', NowText);
+  },
+  function(e) {
+    NowText = e.options.now;
+    now.text(NowText);
+    console.log('closed configurable');
+  }
+);
 
 
 var now = new UI.Text({
@@ -24,7 +41,7 @@ var now = new UI.Text({
 var emptyTopSpace = new UI.Text({
   position: new Vector2(0, 0),
   size: new Vector2(144, 168),
-  text: '*',
+  text: '',
   font: 'GOTHIC_28_BOLD',
   color: 'white',
   textAlign: 'center',
@@ -34,7 +51,7 @@ var emptyTopSpace = new UI.Text({
 var emptyBotSpace = new UI.Text({
   position: new Vector2(0, 138),
   size: new Vector2(144, 168),
-  text: '*',
+  text: '',
   font: 'GOTHIC_28_BOLD',
   color: 'white',
   textAlign: 'center',
