@@ -1,1 +1,1 @@
-"# now-watchface" 
+# NOW Watchface for Pebble
