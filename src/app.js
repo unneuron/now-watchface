@@ -67,12 +67,6 @@ Settings.config(
   }
 );
 
-Accel.config({
-  rate: 10,
-  samples: 25,
-  subscribe: true
-});
-
 Accel.on('tap', function(e) {
   var curDate = new Date();
   var hour = curDate.getHours() > 12 ? ( curDate.getHours()-12 ) : curDate.getHours();
