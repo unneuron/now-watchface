@@ -16,7 +16,7 @@
       }
     }
     function loadSettings() {
-      document.getElementById('now').value = JSON.stringify(localStorage.getItem('options'));
+      document.getElementById('now').value = JSON.stringify(localStorage);
       if (getQueryVariable('now').length) {
         document.getElementById('now').value = getQueryVariable('now');
       }
