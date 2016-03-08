@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="UTF-8">
+    <title>NOW Watchface Settings</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
+    <script type="text/javascript">
+    function loadSettings() {
+      
+    }
+    function saveSettings() {
+      var nowText = document.getElementById('now').value;
+      var options = { now: nowText };
+      document.location = 'pebblejs://close#' + encodeURIComponent(JSON.stringify(options));
+      return false;
+    }
+    </script>
+  </head>
+
+  <body onload="loadSettings()">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+            <div class="todolist not-done">
+              <h1>Settings</h1>
+              <hr />
+              <form id="now-settings" class="form-inline" method="post" onsubmit="return saveSettings();">
+                <label>Text</label>
+                <input name="now" id="now" />
+                <input type="submit" class="btn btn-primary" value="Save" />
+              </form>
+            </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"  crossorigin="anonymous">
+  </body>
+</html>
