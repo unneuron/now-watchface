@@ -5,8 +5,20 @@
     <title>NOW Watchface Settings</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
     <script type="text/javascript">
+    function getQueryVariable(variable) {
+      var query = window.location.search.substring(1);
+      var vars = query.split('&');
+      for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == variable) {
+            return decodeURIComponent(pair[1]);
+        }
+      }
+    }
     function loadSettings() {
-      
+      if (getQueryVariable('now').length) {
+        document.getElementById('now').value = getQueryVariable('now');
+      }
     }
     function saveSettings() {
       var nowText = document.getElementById('now').value;
