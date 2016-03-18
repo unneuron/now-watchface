@@ -10,10 +10,8 @@
 <link href="base.css" rel="stylesheet" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
-<!--
 <script src="//cdn.jsdelivr.net/foundation/4.0.2/js/vendor/custom.modernizr.js"></script>
 <script src="//cdn.jsdelivr.net/foundation/4.0.2/js/foundation.min.js"></script>
--->
 <script src="//cdn.jsdelivr.net/sugar/1.3.9/sugar.min.js"></script>
 </head>
 <body>
@@ -29,7 +27,14 @@
         <label for="nowl"><h2>Watch Text</h2></label>
         <input type="text" id="now" autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Enter your own text" />
         
+        <label for="theme"><h2>Theme</h2></label>
+        <select id="theme" autocomplete="off" autocorrect="off" autocapitalize="off">
+          <option value="0">DARK</option>
+          <option value="1">LIGHT</option>
+        </select>
+        
         <label for="timeout"><h2>Display Time Timeout</h2></label>
+        (miliseconds)
         <input type="text" id="timeout" autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="4000 (miliseconds)" />
         
         <label for="timeformat"><h2>Time Format</h2></label>
@@ -55,6 +60,7 @@ $(function() {
     $('#now').val(options.now ? options.now : 'NOW');
     $('#timeout').val(options.timeout ? options.timeout : '4000');
     $('#timeformat').val(options.timeformat ? options.timeformat : '24h');
+    $('#theme').val(options.theme ? options.theme : '0');
     return options;
   };
 
@@ -63,6 +69,7 @@ $(function() {
     options.now = $('#now').val();
     options.timeout = $('#timeout').val();
     options.timeformat = $('#timeformat').val();
+    options.theme = $('#theme').val();
     return options;
   };
 
